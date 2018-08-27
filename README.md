@@ -1,2 +1,2 @@
 # common-mat-snippets
-Short, simple, .mat snippets that I am using across repos and projects.
+Short, simple, .m snippets (mostly functions) that I am using across repos and projects.
