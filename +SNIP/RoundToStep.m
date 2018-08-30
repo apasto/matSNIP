@@ -9,17 +9,22 @@ function out = RoundToStep(step,in,direction)
 %    step        : scalar, unit value
 %    in          : vector of values to be rounded
 %    [direction] : char vector, optional, direction of rounding
-%                  'round', 'floor', 'ceil'
+%                  'round', 'floor', 'ceil', 'fix'
+%                  'round' is default behaviour
+%                  case insensitive
 %
 % Outputs:
 %    out         : rounded 'in' vector
 %
 % 2018, Alberto Pastorutti
 
+% check and manage input
 narginchk(2,3)
 if nargin==2
     direction='round';
 end
+assert(isscalar(step),'Argument ''step'' must be a scalar.')
+assert(isvector(in),'Argument ''in'' must be a vector.')
 
 % count the number of digits
 stepDIG = numel(num2str(step))-numel(strfind(num2str(step),'-'))-numel(strfind(num2str(step),'.'));
@@ -35,8 +40,10 @@ switch lower(direction)
         out = ((floor((in/(10^(stepDIG)))*stepdiv))/stepdiv)*(10^(stepDIG));
     case 'ceil'
         out = ((ceil((in/(10^(stepDIG)))*stepdiv))/stepdiv)*(10^(stepDIG));
+    case 'fix'
+        out = ((fix((in/(10^(stepDIG)))*stepdiv))/stepdiv)*(10^(stepDIG));
     otherwise
-        error('Direction (3rd argument) must be either round, floor, ceil');
+        error('Direction (3rd argument) must be either ''round'', ''floor'', ''ceil'', ''fix''');
 end
 
 end
