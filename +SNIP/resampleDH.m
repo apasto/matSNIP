@@ -23,7 +23,7 @@ function [outArr,outLon,outLat] = resampleDH(inArr,inLon,inLat,outStep,outSampli
 %    outLon : output lon vector
 %    outLat : output lat vector
 %
-% 2018, Alberto Pastorutti)
+% 2018, Alberto Pastorutti
 
 narginchk(6,7)
 nargoutchk(3,3)
