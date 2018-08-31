@@ -1,4 +1,4 @@
-function OutStruct = gdf2array(InFilename)
+function OutStruct = gdf2array(InFilename,varargin)
 %gdf2array turn a gdf grid into an array with geographic reference
 %    Reshape a .gdf file downloaded from ICGEM calculation service
 %    http://icgem.gfz-potsdam.de/calcgrid
@@ -8,10 +8,15 @@ function OutStruct = gdf2array(InFilename)
 %    (keeping both vectors and meshgrid is wasteful indeed)
 %    The input is scanned for a 'end_of_head' string until row 200.
 %
-% Syntax: OutStruct = gdf2array(InFilename)
+% Syntax: OutStruct = gdf2array(InFilename[,MaxHeaderScan])
 %
 % Input:
 %    InFileName : char vector, path and filename of gdf file
+%    [MaxHeaderScan] : scan input file searching for 'end_of_head'
+%                      until MaxHeaderScan row (included) is reached
+%                      Optional. Default = 200.
+%                      This is to prevent the function hanging on
+%                      a wrong file, possibily huge.
 %
 % Output:
 %    OutStruct : struct with fields
@@ -23,6 +28,14 @@ function OutStruct = gdf2array(InFilename)
 %
 % 2018, Alberto Pastorutti
 
+narginchk(1,2)
+if nargin==2 && isscalar(varargin{1})
+    MaxHeaderScan = varargin{1};
+else
+    MaxHeaderScan = 200;
+end
+    
+
 %% scan and import gdf
 % Initialize variables and formatspec
 delimiter = ' ';
@@ -33,12 +46,13 @@ fileID = fopen(InFilename,'r');
 % Skip to the end of header
 isHeaderEnd = false;
 HeaderRow = 0;
-while isHeaderEnd==false && HeaderRow < 201 % do not bother going further
+while isHeaderEnd==false && HeaderRow < (MaxHeaderScan+1) % do not bother going further
     isHeaderEnd = strncmp(fgetl(fileID),'end_of_head',11);
     HeaderRow = HeaderRow+1;
 end
-if HeaderRow==201
-    error('''end_of_head'' not found in the first 200 rows.')
+if HeaderRow==(MaxHeaderScan+1)
+    error(['''end_of_head'' not found in the first ',...
+        num2str(MaxHeaderScan,'%.0f'),' rows.'])
 end
 
 % Perform textscan
