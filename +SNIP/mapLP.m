@@ -54,7 +54,12 @@ ks = size(F,1); % kernel size, after rounding
 % (by copying edge one kernel size in each direction)
 
 % declare filter function
-% Why a function here? This was applied layer-by-layer in LithoLP.
+% Why a function here?
+% Because this was applied layer-by-layer in 'LithoLP'
+% a function to lowpass filter the depth-map and rho-map
+% of each layer extracted from LITHO1.0, using 'access_litho'
+% (LITHO1.0: Pasyanos et al. 2014, doi:10.1002/2013JB010626]
+% Keeping this as-is, is still may be useful.
     function Map = ApplyFilt(Map_in)
         % apply edge padding
         Map = zeros(size(Map_in)+2*ks); % preallocate padded matrix
