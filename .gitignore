@@ -1,5 +1,4 @@
-# Created by https://www.gitignore.io/api/matlab
-
+# Start of part from https://www.gitignore.io/api/matlab
 ### Matlab ###
 # Windows default autosave extension
 *.asv
@@ -29,6 +28,7 @@ codegen/
 
 # Octave session info
 octave-workspace
+# End of part from https://www.gitignore.io/api/matlab
 
-
-# End of https://www.gitignore.io/api/matlab
+# GMT log
+gmt.history
