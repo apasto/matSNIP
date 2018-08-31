@@ -1,7 +1,7 @@
-function varargout = MAPimagesc(x, y, c)
-%MAPimagesc wrap 'imagesc' to plot a 1:1 aspect, x,y-axis image
+function varargout = mapimagesc(x, y, c)
+%mapimagesc wrap 'imagesc' to plot a 1:1 aspect, x,y-axis image
 %
-% Syntax: [figure, axes, image, colorbar](optional) = MAPimagesc(x, y, c)
+% Syntax: [figure, axes, image, colorbar](optional) = mapimagesc(x, y, c)
 %
 %  Plot a scaled-colour image, directly with 1:1 aspect ratio
 %  and origin placed in the bottom left corner.
