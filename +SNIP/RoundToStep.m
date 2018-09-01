@@ -1,5 +1,5 @@
 function out = RoundToStep(step,in,direction)
-%RoundToStep round(/floor/ceil) input vector to nearest arbitrary 'step' unit
+%RoundToStep round(/floor/ceil/fix) input vector to nearest arbitrary 'step' unit
 % digit-counting code comes from this answer by user Jaymin on matlabcentral:
 % https://mathworks.com/matlabcentral/answers/10795-counting-the-number-of-digits#answer_68482
 % 
@@ -25,6 +25,10 @@ if nargin==2
 end
 assert(isscalar(step),'Argument ''step'' must be a scalar.')
 assert(isvector(in),'Argument ''in'' must be a vector.')
+% check if 'direction' is an allowed round-like function
+allowed_directions = {'round','floor','ceil','fix'};
+assert(any(strcmpi(allowed_directions,direction)),...
+    ['''',direction,''' is not an allowed rounding function.'])
 
 % count the number of digits
 stepDIG = numel(num2str(step))-numel(strfind(num2str(step),'-'))-numel(strfind(num2str(step),'.'));
@@ -32,19 +36,9 @@ stepDIG = numel(num2str(step))-numel(strfind(num2str(step),'-'))-numel(strfind(n
 % number of zsteps in next power of 10
 stepdiv = (10^(stepDIG))/step; 
 
-% round/floor/ceil to step
-switch lower(direction)
-    case 'round'
-        out = ((round((in/(10^(stepDIG)))*stepdiv))/stepdiv)*(10^(stepDIG));
-    case 'floor'
-        out = ((floor((in/(10^(stepDIG)))*stepdiv))/stepdiv)*(10^(stepDIG));
-    case 'ceil'
-        out = ((ceil((in/(10^(stepDIG)))*stepdiv))/stepdiv)*(10^(stepDIG));
-    case 'fix'
-        out = ((fix((in/(10^(stepDIG)))*stepdiv))/stepdiv)*(10^(stepDIG));
-    otherwise
-        error('Direction (3rd argument) must be either ''round'', ''floor'', ''ceil'', ''fix''');
-end
+% round/floor/ceil/fix to step
+roundfunc = str2func(lower(direction)); % create handle to selected rounding function
+out = ((roundfunc((in/(10^(stepDIG)))*stepdiv))/stepdiv)*(10^(stepDIG));
 
 end
 
