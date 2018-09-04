@@ -30,6 +30,12 @@ function CropBigArr = SmallCrop(BigLat,BigLon,BigArr,SmallLat,SmallLon)
 % 2018, Alberto Pastorutti
 
 %% check input
+% transpose lat, long vectors to row, if needed
+if iscolumn(BigLat);   BigLat=BigLat';     end
+if iscolumn(BigLon);   BigLon=BigLon';     end
+if iscolumn(SmallLat); SmallLat=SmallLat'; end
+if iscolumn(SmallLon); SmallLat=SmallLon'; end
+
 % embedded functions, to avoid writing everyting four times
 % using inputname(argNumber) to print out variable names in errors
 AssertInputsTogether(BigLat,SmallLat,inputname(1),inputname(4));
