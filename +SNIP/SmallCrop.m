@@ -47,6 +47,13 @@ CropEdge_E = find(BigLon==max(SmallLon),1);
 CropEdge_S = find(BigLat==min(SmallLat),1);
 CropEdge_N = find(BigLat==max(SmallLat),1);
 
+if any([isempty(CropEdge_W),...
+        isempty(CropEdge_E),...
+        isempty(CropEdge_S),...
+        isempty(CropEdge_N)])
+    warning('No intersection found')
+end
+
 %% crop
 CropBigArr = BigArr(CropEdge_S:CropEdge_N,CropEdge_W:CropEdge_E);
 
