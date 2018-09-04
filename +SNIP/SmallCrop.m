@@ -36,10 +36,27 @@ if iscolumn(BigLon);   BigLon=BigLon';     end
 if iscolumn(SmallLat); SmallLat=SmallLat'; end
 if iscolumn(SmallLon); SmallLat=SmallLon'; end
 
+% inputname(n) is used to print out the offending argument name in errors
+% inputname provides an empty output if the argument is not a variable name
+% e.g. a function call, or a structure field
+% if this happens, use fallback, non-dynamic, argument names ('Robust')
+RobustInputNames = {...
+    'BigLat (1st arg of SmallCrop)',...
+    'BigLon (2nd arg of SmallCrop)',...
+    'BigArr (3rd arg of SmallCrop)',... % 'BigArr' is unused, but kept for clarity
+    'SmallLat (4th arg of SmallCrop)',...
+    'SmallLon (5th arg of SmallCrop)'...
+    };
+for n=1:nargin
+    if ~isempty(inputname(n))
+        RobustInputNames{n} = inputname(n);
+    end
+end
+
 % embedded functions, to avoid writing everyting four times
 % using inputname(argNumber) to print out variable names in errors
-AssertInputsTogether(BigLat,SmallLat,inputname(1),inputname(4));
-AssertInputsTogether(BigLat,SmallLat,inputname(2),inputname(5));
+AssertInputsTogether(BigLat,SmallLat,RobustInputNames{1},RobustInputNames{4});
+AssertInputsTogether(BigLat,SmallLat,RobustInputNames{2},RobustInputNames{5});
 
 %% find crop indices
 CropEdge_W = find(BigLon==min(SmallLon),1);
