@@ -10,8 +10,6 @@ Most of the times these come from pieces of larger scripts or from (then-)embedd
 
 There are no dependencies to additional toolboxes. Tested on MATLAB 2018a.
 
-(here: output of compatibility check)
-
 Should be OCTAVE-compatible, but this was not tested for.
 
 ## Installing
@@ -29,5 +27,5 @@ SNIP.function_name()
 
 ## List of scripts/functions
 
-The contents of this list and of `SNIP.DispContents` are automatically updated after every commit.
+The contents of this list and of `SNIP.DispContents` are automatically updated after every commit is pushed, using Travis CI.
 
