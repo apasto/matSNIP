@@ -10,8 +10,6 @@ Most of the times these come from pieces of larger scripts or from (then-)embedd
 
 There are no dependencies to additional toolboxes. Tested on MATLAB 2018a.
 
-(here: output of compatibility check)
-
 Should be OCTAVE-compatible, but this was not tested for.
 
 ## Installing
@@ -29,7 +27,7 @@ SNIP.function_name()
 
 ## List of scripts/functions
 
-The contents of this list and of `SNIP.DispContents` are automatically updated after every commit.
+The contents of this list and of `SNIP.DispContents` are automatically updated after every commit is pushed, using Travis CI.
 
 - **DispContents** Print out contents of SNIP package.
 - **FwdRepro** Project array (rectangularly sampled) from WGS84 to UTM coordinates.
@@ -48,7 +46,10 @@ The contents of this list and of `SNIP.DispContents` are automatically updated a
 
 ## Acknowledgements
 
-Re-formatting the contents list in [UpdateCONTENTS](UpdateCONTENTS.sh) with `sed` was made possible by an answere to [Replace newlines with literal \n](https://stackoverflow.com/a/38672741/3146014) by stackoverflow user [anubhava](https://stackoverflow.com/users/548225/anubhava).
+Re-formatting the contents list in [UpdateCONTENTS](UpdateCONTENTS.sh) with `sed` was made possible by an answer to [Replace newlines with literal \n](https://stackoverflow.com/a/38672741/3146014) by stackoverflow user [anubhava](https://stackoverflow.com/users/548225/anubhava).
+
+The automatic call to [UpdateCONTENTS](UpdateCONTENTS.sh) was implemented thanks to this helpful tutorial: [Update GH-pages automatically with Travis](https://romantsegelskyi.github.io/blog//2015/09/14/gh-pages-travis/) by [RomanTsegelskyi](https://github.com/RomanTsegelskyi).
+
 
 ## License
 
