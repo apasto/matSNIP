@@ -1,5 +1,5 @@
 function [GRDnan_out] = GRDnan()
-%getGRDnan get value at which NaNs are set in Golden Software grd format
+%getGRDnan get value at which NaNs are set in Surfer(R) grd format
 
 narginchk(0,0)
 nargoutchk(0,1)
