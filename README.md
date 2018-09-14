@@ -30,6 +30,7 @@ SNIP.function_name()
 
 The contents of this list and of `SNIP.DispContents` are automatically updated after every commit.
 
+- **DispContents** Print out contents of SNIP package.
 - **FwdRepro** Project array (rectangularly sampled) from WGS84 to UTM coordinates.
 - **gdf2array** turn a gdf grid into an array with geographic reference
 - **getGRDnan** get value at which NaNs are set in Surfer(R) grd format
