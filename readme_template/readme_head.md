@@ -6,9 +6,15 @@
 Short, somewhat simple, .m functions that I am using across repositories and projects (hence *common*).
 Most of the times these come from pieces of larger scripts or from (then-)embedded functions (hence *snippets*).
 
+Since they reflect the original scope for which they were written for, there is a bit of a *geographic bias* in the contents.
+This means that they mostly manage data on rectangularly sampled geographical grids, stored in arrays as meshgrids or with accompanying grid-vectors.
+Whenever there is a reference to the term "map array", this is what is meant.
+
+Nothing is particularly breathtaking, but they have already proved useful, and are generic enough that keeping them in a private repository (for yet-to-be-submitted code) would have been pointless.
+
 ## Prerequisites
 
-There are no dependencies to additional toolboxes. Tested on MATLAB 2018a.
+There are no dependencies to additional toolboxes, not even to the Mapping Toolbox. Tested on MATLAB 2018a.
 
 Should be OCTAVE-compatible, but this was not tested for.
 
