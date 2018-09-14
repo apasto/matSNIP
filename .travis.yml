@@ -1,0 +1,7 @@
+language: generic
+
+notifications:
+  email: false
+
+after_success:
+- bash SNIP_updater.sh
