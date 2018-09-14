@@ -1,0 +1,10 @@
+function DispContents()
+%DispContents Print out contents of SNIP package.
+%
+% ** Do not edit DispContents.m **
+% Changes will be lost!
+% This was automatically created by UpdateCONTENTS.sh
+% Header and foot are stored in:
+%    readme_template/contents_head
+%    readme_template/contents_foot
+% while the body (Contents_text) is updated with the functions in +SNIP
