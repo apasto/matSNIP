@@ -36,6 +36,7 @@ SNIP.function_name()
 The contents of this list and of `SNIP.DispContents` are automatically updated after every commit is pushed, using Travis CI.
 
 - **DispContents** Print out contents of SNIP package.
+- **ell2sph** Convert ellipsoidal to spherical coordinates, passing through ECEF
 - **FwdRepro** Project array (rectangularly sampled) from WGS84 to UTM coordinates.
 - **gdf2array** turn a gdf grid into an array with geographic reference
 - **getGRDnan** get value at which NaNs are set in Surfer(R) grd format
@@ -45,6 +46,7 @@ The contents of this list and of `SNIP.DispContents` are automatically updated a
 - **resampleDH** resample grid to a grid complying to Driscoll and Healy (1994)
 - **RoundToStep** round(/floor/ceil/fix) input vector to nearest arbitrary 'step' unit
 - **SmallCrop** Given two maps, 'Big' and 'Small', crop 'Big' to the extent of 'Small'
+- **sph2ell** Convert spherical to ellipsoidal coordinates, passing through ECEF
 
 ## Authors
 
