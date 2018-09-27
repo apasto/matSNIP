@@ -2,7 +2,7 @@ function [outArr,outLon,outLat] = resampleDH(inArr,inLon,inLat,outStep,outSampli
 %resampleDH resample grid to a grid complying to Driscoll and Healy (1994)
 %           sampling theorem, with a defined step size
 %           and the choice between NxN or Nx2N sampling.
-%           'inArr' and 'outArr' must be in (Lon, Lat) form
+%           'inArr' and 'outArr' must be in (Lat, Lon) form
 %
 % Syntax: [outArr,outLon,outLat] = ...
 %             SNIP.resampleDH(inArr,inLon,inLat,...
