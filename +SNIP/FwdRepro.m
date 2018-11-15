@@ -1,4 +1,4 @@
-function [n,e,ArrUTM,UTMstruct] = FwdRepro(Lat,Lon,Arr,step)
+function [n,e,ArrUTM,UTMstruct] = FwdRepro(Lat,Lon,Arr,step,varargin)
 %FwdRepro Project array (rectangularly sampled) from WGS84 to UTM coordinates.
 %         this is done by :
 %             0) building a meshgrid for the input array
@@ -11,7 +11,7 @@ function [n,e,ArrUTM,UTMstruct] = FwdRepro(Lat,Lon,Arr,step)
 %
 %         CRS of input coordinates is assumed as WGS84.
 %
-% Syntax: [n,e,ArrUTM,UTMstruct] = FwdRepro(Lat,Lon,Arr,step)
+% Syntax: [n,e,ArrUTM,UTMstruct] = FwdRepro(Lat,Lon,Arr,step[,UTMstruct])
 %
 % Input:
 %    Lat  : latitude coordinate vector [m]
@@ -19,6 +19,8 @@ function [n,e,ArrUTM,UTMstruct] = FwdRepro(Lat,Lon,Arr,step)
 %    Arr  : rectangularly sampled Lon x Lat array
 %            NOTE: transpose accordingly, if needed.
 %    step : step between elements in output (ArrUTM) [m]
+%    optional UTMstruct: to impose a UTM zone, provide a map projection structure
+%                         see 'defaultm' (Matlab builtin) documentation
 %
 % Output:
 %    n         : northing coordinate vector
@@ -29,15 +31,19 @@ function [n,e,ArrUTM,UTMstruct] = FwdRepro(Lat,Lon,Arr,step)
 %
 % 2018, Alberto Pastorutti
 
-narginchk(4,4)
+narginchk(4,5)
 nargoutchk(4,4)
 
 %% Get UTM zone and build mapstruct
-meanUTMzone = utmzone(mean(Lat),mean(Lon));
-UTMstruct = defaultm('utm');
-UTMstruct.zone = meanUTMzone;
-UTMstruct.geoid = wgs84Ellipsoid;
-UTMstruct = defaultm(UTMstruct);
+if nargin==4
+    meanUTMzone = utmzone(mean(Lat),mean(Lon));
+    UTMstruct = defaultm('utm');
+    UTMstruct.zone = meanUTMzone;
+    UTMstruct.geoid = wgs84Ellipsoid;
+    UTMstruct = defaultm(UTMstruct);
+else
+    UTMstruct = varargin{1};
+end
 
 %% transform to UTM
 [LAT,LON] = meshgrid(Lat,Lon); % Meshgrid from Lat,Lon
