@@ -47,6 +47,7 @@ The contents of this list and of `SNIP.DispContents` are automatically updated a
 - **RoundToStep** round(/floor/ceil/fix) input vector to nearest arbitrary 'step' unit
 - **SmallCrop** Given two maps, 'Big' and 'Small', crop 'Big' to the extent of 'Small'
 - **sph2ell** Convert spherical to ellipsoidal coordinates, passing through ECEF
+- **TileCheckerboard** creates a checkerboard with arbitrary sized square tiles
 
 ## Authors
 
