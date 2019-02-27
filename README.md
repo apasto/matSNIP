@@ -14,9 +14,11 @@ Nothing is particularly breathtaking, but they have already proved useful, and a
 
 ## Prerequisites
 
-There are no dependencies to additional toolboxes, not even to the Mapping Toolbox. Tested on MATLAB 2018a.
+Dependencies where listed by calling `matlab.codetools.requiredFilesAndProducts` on the function files, in MATLAB 2018b.
 
-Should be OCTAVE-compatible, but this was not tested for.
+* Toolboxes: **FwdRepro** and **InvRepro** use [`mfwtran`](https://mathworks.com/help/map/ref/mfwdtran.html) and [`minvtran`](https://mathworks.com/help/map/ref/minvtran.html), which are provided in the MATLAB Mapping Toolbox.
+
+* OCTAVE compatibility: **ell2sph**, **sph2ell**, **FwdRepro**, **InvRepro** perform calls to functions which have not been implemented yet (in version 1.2.1, as reported [here](https://wiki.octave.org/Mapping_package#Missing_functions)). This list may not be exhaustive.
 
 ## Installing
 
