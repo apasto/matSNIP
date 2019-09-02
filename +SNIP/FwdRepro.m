@@ -15,7 +15,7 @@ function [n,e,ArrUTM,UTMstruct] = FwdRepro(Lat,Lon,Arr,step,varargin)
 %
 % Input:
 %    Lat  : latitude coordinate vector [m]
-%    Lon  : longiute coordinate vector [m]
+%    Lon  : longitude coordinate vector [m]
 %    Arr  : rectangularly sampled Lon x Lat array
 %            NOTE: transpose accordingly, if needed.
 %    step : step between elements in output (ArrUTM) [m]
