@@ -36,7 +36,7 @@ SNIP.function_name()
 ## List of scripts/functions
 
 The contents of this list and of `SNIP.DispContents` are automatically updated after every commit is pushed, using Travis CI.
-[![Build Status](https://travis-ci.org/apasto/matSNIP.svg?branch=master)](https://travis-ci.org/apasto/matSNIP)
+[![Build Status](https://travis-ci.com/apasto/matSNIP.svg?branch=master)](https://travis-ci.com/apasto/matSNIP)
 
 - **DispContents** Print out contents of SNIP package.
 - **ell2sph** Convert ellipsoidal to spherical coordinates, passing through ECEF
