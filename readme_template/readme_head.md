@@ -39,5 +39,5 @@ SNIP.function_name()
 ## List of scripts/functions
 
 The contents of this list and of `SNIP.DispContents` are automatically updated after every commit is pushed, using Travis CI.
-[![Build Status](https://travis-ci.org/apasto/matSNIP.svg?branch=master)](https://travis-ci.org/apasto/matSNIP)
+[![Build Status](https://app.travis-ci.com/apasto/matSNIP.svg?branch=master)](https://app.travis-ci.com/apasto/matSNIP)
 
