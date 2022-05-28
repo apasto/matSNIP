@@ -3,18 +3,21 @@
 
 # matSNIP
 
-Short, somewhat simple, .m functions that I am using across repositories and projects (hence *common*).
-Most of the times these come from pieces of larger scripts or from (then-)embedded functions (hence *snippets*).
+[![Project Status: Inactive – The project has reached a stable, usable state but is no longer being actively developed; support/maintenance will be provided as time allows.](https://www.repostatus.org/badges/latest/inactive.svg)](https://www.repostatus.org/#inactive)
 
-Since they reflect the original scope for which they were written for, there is a bit of a *geographic bias* in the contents.
-This means that they mostly manage data on rectangularly sampled geographical grids, stored in arrays as meshgrids or with accompanying grid-vectors.
+⚠️ The functions that I am providing here have been both an excercise and a useful tool, for me. Howerver, most of the map-related functionalities are better implemented in GMT modules and conveniently wrapped in the [GMTMex GMT API for MATLAB](https://github.com/GenericMappingTools/gmtmex). **Use those, do not bother with these!** Among other considerations, I am not mantaining this repository. Also, I will likely move some of the functions (such as RoundToStep and TileCheckerboard) to a separate repository. ⚠️
+
+matSNIP: short, simple, .m functions that I am using across repositories and projects (hence *common*).
+Most of the times these come from refactoring of larger scripts (hence *snippets*).
+
+Since they reflect the original scope for which they were written for, they mostly manage data on rectangularly sampled geographical grids, stored in arrays as meshgrids or with accompanying grid-vectors.
 Whenever there is a reference to the term "map array", this is what is meant.
 
-Nothing is particularly breathtaking, but they have already proved useful, and are generic enough that keeping them in a private repository (for yet-to-be-submitted code) would have been pointless.
+Nothing is particularly breathtaking, but they have already proved useful, and are generic enough that keeping them in a private repository would have been pointless.
 
 ## Prerequisites
 
-Dependencies where listed by calling `matlab.codetools.requiredFilesAndProducts` on the function files, in MATLAB 2018b.
+Dependencies were listed by calling `matlab.codetools.requiredFilesAndProducts` on the function files, in MATLAB 2018b.
 
 * Toolboxes: **FwdRepro** and **InvRepro** use [`mfwtran`](https://mathworks.com/help/map/ref/mfwdtran.html) and [`minvtran`](https://mathworks.com/help/map/ref/minvtran.html), which are provided in the MATLAB Mapping Toolbox.
 
