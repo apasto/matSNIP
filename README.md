@@ -5,7 +5,7 @@
 
 [![Project Status: Inactive – The project has reached a stable, usable state but is no longer being actively developed; support/maintenance will be provided as time allows.](https://www.repostatus.org/badges/latest/inactive.svg)](https://www.repostatus.org/#inactive)
 
-⚠️ The functions that I am providing here have been both an excercise and a useful tool, for me. Howerver, most of the map-related functionalities are better implemented in GMT modules and conveniently wrapped in the [GMTMex GMT API for MATLAB](https://github.com/GenericMappingTools/gmtmex). **Use those, do not bother with these!** Among other considerations, I am not mantaining this repository. Also, I will likely move some of the functions (such as RoundToStep and TileCheckerboard) to a separate repository. ⚠️
+⚠️ The functions that I am providing here have been both an exercise and a useful tool, for me. Howerver, most of the map-related functionalities are better implemented in GMT modules and conveniently wrapped in the [GMTMex GMT API for MATLAB](https://github.com/GenericMappingTools/gmtmex). **Use those, do not bother with these!** Among other considerations, I am not mantaining this repository. Also, I will likely move some of the functions (such as RoundToStep and TileCheckerboard) to a separate repository. ⚠️
 
 matSNIP: short, simple, .m functions that I am using across repositories and projects (hence *common*).
 Most of the times these come from refactoring of larger scripts (hence *snippets*).
